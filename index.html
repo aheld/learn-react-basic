@@ -5,19 +5,20 @@
     <title>Hello React!</title>
     <script src="https://fb.me/react-15.2.1.min.js"></script>
     <script src="https://fb.me/react-dom-15.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   </head>
   <body>
     <div id="react-here" class="container"></div>
-    <script>
-    
-var Jumbotron = React.createClass({displayName: 'jumbotron',
+    <script type="text/babel">
+
+var Jumbotron = React.createClass({
   render: function() {
     return (
-      React.createElement('div', {className: "jumbotron"},
-        React.createElement(HelloWorld),
-        React.createElement(SummeryContent)
-      )
+	<div className='jumbotron'>
+		<HelloWorld/>
+		<SummeryContent content={ bacon } />
+	</div>
     );
   }
 });
@@ -25,28 +26,26 @@ var Jumbotron = React.createClass({displayName: 'jumbotron',
 var SummeryContent = React.createClass({
   render: function() {
     return (
-       React.createElement('p',{} , 
-        "Bacon ipsum dolor amet landjaeger short ribs turducken tongue kevin bacon. Pastrami drumstick kielbasa shankle."
-      )
+	<p>{ this.props.content }</p>
     );
   }
 });
 
-var HelloWorld = React.createClass({displayName: 'hellow',
+var HelloWorld = React.createClass({
   render: function() {
     return (
-      React.createElement('h1', {className: "header"},
-        "Hello, world!"
-      )
-    );
-  }
+	<h1>Hello, world!</h1>
+      );
+    }
 });
 
+let bacon = "Bacon ipsum dolor amet landjaeger short ribs turducken tongue kevin bacon. Pastrami drumstick kielbasa shankle.";
+
 ReactDOM.render(
-  React.createElement(Jumbotron, null),
+  <Jumbotron/>,
   document.getElementById('react-here')
 ); 
-    
+
     </script>
   </body>
 </html>

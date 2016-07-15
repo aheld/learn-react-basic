@@ -3,11 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hello React!</title>
-    <script src="build/react.js"></script>
-    <script src="build/react-dom.js"></script>
+    <script src="https://fb.me/react-15.2.1.min.js"></script>
+    <script src="https://fb.me/react-dom-15.2.1.min.js"></script>
   </head>
   <body>
     <div id="react-here"></div>
-    <script src="bundle.js"></script>
+    <script>
+    
+
+var HelloWorld = React.createClass({displayName: 'hellow',
+  render: function() {
+    return (
+      React.createElement('h1', {className: "header"},
+        "Hello, world!"
+      )
+    );
+  }
+});
+
+ReactDOM.render(
+  React.createElement(HelloWorld, null),
+  document.getElementById('react-here')
+); 
+    
+    </script>
   </body>
 </html>

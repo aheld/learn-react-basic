@@ -14,7 +14,9 @@
     "react": "^15.2.1",
     "react-dom": "^15.2.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack main.js bundle.js --module-bind 'js=babel-loader'",

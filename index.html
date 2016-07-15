@@ -5,11 +5,32 @@
     <title>Hello React!</title>
     <script src="https://fb.me/react-15.2.1.min.js"></script>
     <script src="https://fb.me/react-dom-15.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   </head>
   <body>
-    <div id="react-here"></div>
+    <div id="react-here" class="container"></div>
     <script>
     
+var Jumbotron = React.createClass({displayName: 'jumbotron',
+  render: function() {
+    return (
+      React.createElement('div', {className: "jumbotron"},
+        React.createElement(HelloWorld),
+        React.createElement(SummeryContent)
+      )
+    );
+  }
+});
+
+var SummeryContent = React.createClass({
+  render: function() {
+    return (
+       React.createElement('p',{} , 
+        "Bacon ipsum dolor amet landjaeger short ribs turducken tongue kevin bacon. Pastrami drumstick kielbasa shankle."
+      )
+    );
+  }
+});
 
 var HelloWorld = React.createClass({displayName: 'hellow',
   render: function() {
@@ -22,7 +43,7 @@ var HelloWorld = React.createClass({displayName: 'hellow',
 });
 
 ReactDOM.render(
-  React.createElement(HelloWorld, null),
+  React.createElement(Jumbotron, null),
   document.getElementById('react-here')
 ); 
     
